@@ -1,0 +1,173 @@
+
+
+nav {
+    background-color: #0000003a;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 5px;
+    box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.13);
+    padding: 10px 200px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    
+    @media screen and (max-width: 1024px) {
+        padding: 0 50px; 
+
+    .nav-container {
+        gap: 1rem;
+    }
+    }
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: end;
+  }
+  
+  .menus {
+    gap: 1rem;
+    margin: 0;
+  }
+  
+  ul li {
+    color: #ffffff;
+    display: grid;
+    place-content: center;
+    margin: 0;
+  }
+  
+  .example-2 {
+    .icon-content {
+      margin: 10px 10px;
+      position: relative;
+  
+      .tooltip {
+        position: absolute;
+        bottom: -30px; /* Se coloca debajo */
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 5px;
+        opacity: 0;
+        visibility: hidden;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+  
+      &:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+        bottom: -50px; /* Ajusta la animación hacia abajo */
+      }
+  
+      a {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+  
+        &:hover {
+          box-shadow: 3px 2px 45px 0px rgba(214, 33, 33, 0.12);
+        }
+  
+        svg {
+          position: relative;
+          z-index: 1;
+          width: 20px;
+          height: 20px;
+        }
+  
+        &:hover {
+          color: white;
+        }
+  
+        .filled {
+          position: absolute;
+          top: auto;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0;
+          background-color: #000;
+          transition: all 0.3s ease-in-out;
+        }
+  
+        &:hover .filled {
+          height: 100%;
+        }
+  
+        &[data-social="whatsapp"] .filled,
+        &[data-social="whatsapp"] ~ .tooltip {
+          background-color: #128c7e;
+        }
+  
+        &[data-social="facebook"] .filled,
+        &[data-social="facebook"] ~ .tooltip {
+          background-color: #3b5998;
+        }
+  
+        &[data-social="instagram"] .filled,
+        &[data-social="instagram"] ~ .tooltip {
+          background: linear-gradient(
+            45deg,
+            #405de6,
+            #5b51db,
+            #b33ab4,
+            #c135b4,
+            #e1306c,
+            #fd1f1f
+          );
+        }
+  
+        &[data-social="tiktok"] .filled,
+        &[data-social="tiktok"] ~ .tooltip {
+          background-color: #000;
+        }
+      }
+    }
+  }
+  
+  .logo {
+    color: #fff;
+    cursor: none;
+  }
+  
+  .menu {
+    color: #fff;
+    padding: 0.5rem;
+    position: relative;
+    text-decoration: none;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: #bbbbbb;
+      border-radius: 5px;
+      transform: scaleX(0);
+      transition: all 0.5s ease;
+      bottom: 0;
+      left: 0;
+    }
+  
+    &:hover::before {
+      transform: scaleX(1);
+    }
+  }
+  
