@@ -14,7 +14,7 @@ import { ContactComponent } from './pages/contact/contact.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    NavbarComponent,
+    
     FootersComponent,
     HomeComponent,
     ServiceComponent,

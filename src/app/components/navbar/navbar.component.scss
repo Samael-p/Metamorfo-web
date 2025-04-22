@@ -1,4 +1,7 @@
-
+*{
+    padding: 0;
+    margin: 0;
+}
 
 nav {
     background-color: #0000003a;
@@ -8,20 +11,30 @@ nav {
     box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.13);
     padding: 10px 200px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    
-    @media screen and (max-width: 1024px) {
-        padding: 0 50px; 
-
-    .nav-container {
-        gap: 1rem;
-    }
-    }
-  }
   
-  .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .logo {
+      color: #fff;
+      margin: 0 100px;
+      cursor: default; // Corrección
+    }
+  
+    @media screen and (max-width: 1024px) {
+      padding: 0 50px;
+  
+      .nav-container {
+        gap: 1rem;
+      }
+  
+      .logo {
+        margin: 18px 1px;
+      }
+    }
   }
   
   ul {
@@ -29,28 +42,29 @@ nav {
     list-style: none;
     align-items: center;
     justify-content: end;
+    padding-left: 50px;
   }
+    li {
+      color: #ffffff;
+      display: grid;
+      place-content: center;
+      margin: 0;
+    }
+  
   
   .menus {
     gap: 1rem;
     margin: 0;
   }
   
-  ul li {
-    color: #ffffff;
-    display: grid;
-    place-content: center;
-    margin: 0;
-  }
-  
   .example-2 {
     .icon-content {
-      margin: 10px 10px;
+      margin: 10px;
       position: relative;
   
       .tooltip {
         position: absolute;
-        bottom: -30px; /* Se coloca debajo */
+        bottom: -30px;
         left: 50%;
         transform: translateX(-50%);
         color: #fff;
@@ -65,7 +79,7 @@ nav {
       &:hover .tooltip {
         opacity: 1;
         visibility: visible;
-        bottom: -50px; /* Ajusta la animación hacia abajo */
+        bottom: -50px;
       }
   
       a {
@@ -77,12 +91,17 @@ nav {
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        color: #fff;
+        color: #ffffff;
         background-color: transparent;
         transition: all 0.3s ease-in-out;
   
         &:hover {
-          box-shadow: 3px 2px 45px 0px rgba(214, 33, 33, 0.12);
+          box-shadow: 3px 2px 45px 0px rgba(99, 10, 10, 0.12);
+          color: rgb(255, 255, 255);
+  
+          .filled {
+            height: 100%;
+          }
         }
   
         svg {
@@ -92,13 +111,10 @@ nav {
           height: 20px;
         }
   
-        &:hover {
-          color: white;
-        }
+       
   
         .filled {
           position: absolute;
-          top: auto;
           bottom: 0;
           left: 0;
           width: 100%;
@@ -107,63 +123,79 @@ nav {
           transition: all 0.3s ease-in-out;
         }
   
-        &:hover .filled {
-          height: 100%;
+        &[data-social="whatsapp"] {
+          .filled {
+            background-color: #128c7e;
+          }
+          ~ .tooltip {
+            background-color: #128c7e;
+          }
         }
   
-        &[data-social="whatsapp"] .filled,
-        &[data-social="whatsapp"] ~ .tooltip {
-          background-color: #128c7e;
+        &[data-social="facebook"] {
+          .filled {
+            background-color: #3b5998;
+          }
+          ~ .tooltip {
+            background-color: #3b5998;
+          }
         }
   
-        &[data-social="facebook"] .filled,
-        &[data-social="facebook"] ~ .tooltip {
-          background-color: #3b5998;
+        &[data-social="instagram"] {
+          .filled {
+            background: linear-gradient(
+              45deg,
+              #405de6,
+              #5b51db,
+              #b33ab4,
+              #c135b4,
+              #e1306c,
+              #fd1f1f
+            );
+          }
+          ~ .tooltip {
+            background: linear-gradient(
+              45deg,
+              #405de6,
+              #5b51db,
+              #b33ab4,
+              #c135b4,
+              #e1306c,
+              #fd1f1f
+            );
+          }
         }
   
-        &[data-social="instagram"] .filled,
-        &[data-social="instagram"] ~ .tooltip {
-          background: linear-gradient(
-            45deg,
-            #405de6,
-            #5b51db,
-            #b33ab4,
-            #c135b4,
-            #e1306c,
-            #fd1f1f
-          );
-        }
-  
-        &[data-social="tiktok"] .filled,
-        &[data-social="tiktok"] ~ .tooltip {
-          background-color: #000;
+        &[data-social="tiktok"] {
+          .filled {
+            background-color: #000;
+          }
+          ~ .tooltip {
+            background-color: #000;
+          }
         }
       }
     }
-  }
-  
-  .logo {
-    color: #fff;
-    cursor: none;
-  }
-  
+}
+
   .menu {
-    color: #fff;
+    color: #ffffff;
     padding: 0.5rem;
     position: relative;
     text-decoration: none;
-  
+    
+    
     &::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background: #bbbbbb;
-      border-radius: 5px;
-      transform: scaleX(0);
-      transition: all 0.5s ease;
-      bottom: 0;
-      left: 0;
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background: #ffffff;
+        border-radius: 50%;
+        transform: scaleX(0);
+        transition: all 0.5s ease;
+        bottom: 0;
+        left: 0;
     }
   
     &:hover::before {
@@ -171,3 +203,122 @@ nav {
     }
   }
   
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  .hamburger {
+    display: none; // se mostrará en media query
+    width: 30px;
+    height: 22px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background-color: white;
+      left: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 2px;
+    }
+  
+    &::before {
+      top: 0;
+    }
+  
+    &::after {
+      bottom: 0;
+    }
+  
+    span {
+      position: absolute;
+      top: 9px;
+      right: 0;
+      width: 70%;
+      height: 4px;
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+      border-radius: 2px;
+    }
+    
+    
+  }
+
+    @media screen and (max-width: 768px) {
+    
+        .hamburger {
+        display: block;
+        }
+        #menu-toggle:checked + .hamburger::before {
+            transform: rotate(45deg);
+            top: 9px;
+          }
+          
+          #menu-toggle:checked + .hamburger::after {
+            transform: rotate(-45deg);
+            bottom: 9px;
+          }
+          
+          #menu-toggle:checked + .hamburger span {
+            opacity: 0;
+          }
+          
+          
+
+    
+    ul {
+        padding-left: 0px;
+      }
+
+    .menus {
+    
+    flex-direction: column;
+    background: rgba( 0, 0, 0, 0.2 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 15px );
+    -webkit-backdrop-filter: blur( 15px );
+        
+ 
+      width: 100%;
+      padding: 10px 0;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 10;
+  
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.3s ease;
+    } 
+    
+    #menu-toggle:checked + .hamburger + .menus {
+            display: flex;
+            max-height: 500px;
+            opacity: 1;
+            transition: 1s;
+    }
+
+  
+  
+    .example-2 {
+      .icon-content {
+        .tooltip {
+          display: none;
+        }
+  
+        a:hover .filled {
+          display: none;
+        }
+      }
+    }
+
+    .whars {
+        animation: pulsew 2s infinite;
+    }
+}
