@@ -1,0 +1,201 @@
+// Variables globales
+:root {
+    --color1: #E9F1FA;
+    --color2: #000000;
+    --color3: #e6e4e1;
+    --color4: #2A7B9B;
+    --color6: linear-gradient(90deg, rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  
+ .service-section {
+
+    height: 100vh;
+    width: 100%;
+    justify-items: center;
+  }
+  
+  .services-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5%;
+
+  }
+  
+  .service-column {
+    flex: 1 1 calc(25% - 40px);
+    max-width: 300px;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+  
+  .main {
+    width: 100%;
+    min-height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+  
+    &:hover {
+      .service {
+        transform: translateY(-50px);
+      }
+  
+      .shadowOne {
+        transform: translateY(-25px);
+      }
+  
+      .shadowTwo {
+        transform: translateY(0px);
+      }
+  
+      img {
+        transform: rotate(360deg);
+      }
+    }
+  }
+  
+  .service {
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    box-shadow: 0 0 30px -15px #4d4d4d;
+    transition: transform 0.9s;
+    max-width: 300px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+  
+    h4 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 100%;
+      margin: 20px 0;
+      background: #ffffff;
+      color: rgb(0, 0, 0);
+      font-size: 1.2rem;
+      font-weight: bold;
+      position: relative;
+      text-align: center;
+      
+  
+      &::after {
+        content: '';
+        width: 40px;
+        height: 30px;
+        background: linear-gradient(to right, red, green);
+        position: absolute;
+        right: -5px;
+        filter: blur(10px);
+        top: -5px;
+        z-index: -1;
+      }
+  
+      &::before {
+        content: '';
+        width: 40px;
+        height: 30px;
+        background: linear-gradient(to right, green, red);
+        position: absolute;
+        left: -5px;
+        filter: blur(4px);
+        bottom: -5px;
+        z-index: -1;
+      }
+    }
+  
+    p {
+      color: rgb(0, 0, 0);
+    }
+  }
+  
+  .service-logo {
+    position: absolute;
+    top: -70px; // Mitad superior de la tarjeta
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    border: 18px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 18px solid  #000000;
+    z-index: 2;
+  
+    img {
+      width: 50px;
+      height: 50px;
+      transition: transform 1s;
+    }
+  }
+  
+  .shadowOne,
+  .shadowTwo {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  
+  .shadowOne {
+    height: 200px;
+    width: 80%;
+    bottom: 0;
+    left: 10%;
+    z-index: -1;
+    box-shadow: 0 0 20px -15px #f8f8f8;
+    transition: transform 0.9s;
+  }
+  
+  .shadowTwo {
+    height: 200px;
+    width: 65%;
+    bottom: 0;
+    left: 18%;
+    z-index: -2;
+  }
+  
+  .title-box {
+    min-width: 250px;
+    margin-right: 40px;
+    color: white;
+    text-align: left;
+    padding: 20px;
+  
+    h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      padding-top: 100px;
+    }
+  }
+  
+  // Responsivo
+  @media (max-width: 768px) {
+    .service-column {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+  }
+  

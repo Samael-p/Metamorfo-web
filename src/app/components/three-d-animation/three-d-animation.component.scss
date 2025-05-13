@@ -1,0 +1,16 @@
+/* filepath: d:\Desktop\Proyectos\Metamorfo-web\src\app\components\three-d-animation\three-d-animation.component.scss */
+#container3D {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none; /* auto Permite clics y movimientos */
+  cursor: pointer;
+}
+
+#container3D .object-grab {
+  cursor: grab;
+}
+
+#container3D .object-grabbing {
+  cursor: grabbing;
+}

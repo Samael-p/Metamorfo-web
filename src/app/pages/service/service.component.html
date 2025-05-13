@@ -1,7 +1,20 @@
-<div class="Servicios">
-
-    <section class="content">
-    <h1>Bienvenido</h1>
-    <p>este es la pagina de Servicios</p>
-    </section>
-</div>
+<section id="servicios" class="service-section">
+<div class="title-box">
+    <h2>nuestros servicios</h2>
+  </div>
+  
+  <div class="services-row">
+    <div class="service-column" *ngFor="let servicio of servicios">
+      <div class="main">
+        <div class="service">
+          <div class="service-logo">
+            <img [src]="servicio.icono" [alt]="servicio.titulo" />
+          </div>
+          <h4>{{ servicio.titulo }}</h4>
+          <p>{{ servicio.descripcion }}</p>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+</section>

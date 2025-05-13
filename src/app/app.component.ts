@@ -14,13 +14,12 @@ import { ContactComponent } from './pages/contact/contact.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    
     FootersComponent,
     HomeComponent,
     ServiceComponent,
     TeamComponent,
-    ContactComponent
-  ],
+    ContactComponent,
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

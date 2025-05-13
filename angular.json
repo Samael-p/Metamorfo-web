@@ -25,14 +25,22 @@
             ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "stylePreprocessorOptions": {
+  "includePaths": ["src/styles"]
+},
             "assets": [
+              "src/assets",
+  "src/favicon.ico",
               {
                 "glob": "**/*",
                 "input": "public"
+                
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/font-awesome/css/font-awesome.min.css",  
+              "node_modules/font-awesome/css/font-awesome.min.css"
             ],
             "scripts": []
           },

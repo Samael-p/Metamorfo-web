@@ -1,1 +1,56 @@
-<p>team works!</p>
+<div class="team-container">
+    <div class="team-title">
+        <h2>Conoce al equipo detrás de <span class="highlight">nuestra empresa</span></h2>
+        <p class="subtitle">Profesionales apasionados que impulsan la innovación y la excelencia.</p>
+      </div>
+    <div class="conainer-infoCards">
+    <!-- Imágenes apiladas a la izquierda -->
+    <div class="carousel">
+        <div class="card-stack">
+          <div
+            *ngFor="let t of testimonials; let i = index"
+            class="card"
+            [class.active]="i === currentIndex"
+            [class.left]="i < currentIndex"
+            [class.right]="i > currentIndex"
+          >
+            <img [src]="t.image" alt="{{ t.name }}" />
+          </div>
+        </div>
+      </div>
+      
+  
+    <!-- Texto a la derecha -->
+    <div class="testimonial-text">
+      <h3>{{ currentTestimonial.name }}</h3>
+      <p class="role">{{ currentTestimonial.role }}</p>
+      <p class="message">{{ currentTestimonial.message }}</p>
+        <!-- Redes sociales debajo del mensaje -->
+        <div class="social-icons">
+            <a *ngIf="currentTestimonial.socialLinks.facebook" href="{{ currentTestimonial.socialLinks.facebook }}" target="_blank" class="facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.twitter" href="{{ currentTestimonial.socialLinks.twitter }}" target="_blank" class="twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.linkedin" href="{{ currentTestimonial.socialLinks.linkedin }}" target="_blank" class="linkedin">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.instagram" href="{{ currentTestimonial.socialLinks.instagram }}" target="_blank" class="instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          
+      <!-- Botones -->
+      <div class="controls">
+        <button (click)="prev()">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button (click)="next()">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+  

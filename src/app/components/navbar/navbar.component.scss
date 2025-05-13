@@ -4,12 +4,12 @@
 }
 
 nav {
-    background-color: #0000003a;
-    backdrop-filter: blur(10px);
+    background-color: #0000002d;
+    backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
-    border-radius: 5px;
-    box-shadow: 0 5px 30px 0 rgba(22, 32, 220, 0.13);
-    padding: 10px 200px;
+    border-radius: 8px;
+    
+    padding: 10px 100px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   
     .nav-container {
@@ -18,24 +18,40 @@ nav {
       align-items: center;
     }
   
-    .logo {
-      color: #fff;
-      margin: 0 100px;
-      cursor: default; // Corrección
+    #logoSvg path {
+    fill: transparent;
+    stroke: #ffffff;
+    stroke-width: 1;
+    stroke-dasharray:50;
+    stroke-dashoffset: 50;
+    animation: textAnimation 4s ease-in-out 1 forwards;
+  }
+  
+  @keyframes textAnimation {
+    0% {
+      stroke-dashoffset: 50;
     }
-  
-    @media screen and (max-width: 1024px) {
-      padding: 0 50px;
-  
-      .nav-container {
-        gap: 1rem;
-      }
-  
-      .logo {
-        margin: 18px 1px;
-      }
+    80% {
+      fill: transparent;
+    }
+    100% {
+      fill: #ffffff;
+      stroke-dashoffset: 0;
     }
   }
+    @media screen and (max-width: 764px) {
+      padding: 1px 10px;
+  
+      .nav-container {
+        gap: 1rem; 
+        padding: 0 1px;
+
+      }
+      
+      
+    }
+  }
+  
   
   ul {
     display: flex;
@@ -267,7 +283,12 @@ nav {
           #menu-toggle:checked + .hamburger span {
             opacity: 0;
           }
-          
+       .logo{
+       
+        transform: scale(0.6);
+        
+      
+       }
           
 
     
@@ -280,7 +301,7 @@ nav {
     flex-direction: column;
     background: rgba( 0, 0, 0, 0.2 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 15px );
+    backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 15px );
         
  
