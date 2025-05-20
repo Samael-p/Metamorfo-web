@@ -1,8 +1,8 @@
-/* filepath: d:\Desktop\Proyectos\Metamorfo-web\src\app\components\three-d-animation\three-d-animation.component.scss */
+// This file contains the styles for the 3D animation component
 #container3D {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 1;
   pointer-events: none; /* auto Permite clics y movimientos */
   cursor: pointer;
 }

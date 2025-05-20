@@ -24,27 +24,38 @@ export class ThreeDAnimationComponent implements AfterViewInit {
   private arrPositionModel = [
     {
       id: 'home',
-      position: { x: 15, y: -1, z: 0 },
-      rotation: { x: 0, y: -1.5, z: 0 },
-      scale:    { x: 1, y:1, z: 1 }, // Escala normal
+      position: { x: 10, y: 2, z: 0 },
+      rotation: { x: 0, y: -4, z: 0 },
+      scale:    { x: 0.009, y: 0.009, z: 0.009 }, // Escala normal
+      animation: { duration: 1.5, ease: 'power2.out' }, // Animación personalizada
     },
     {
       id: 'service',
       position: { x: -15, y: 1, z: -4 },
-      rotation: { x: 0.5, y: 0.5, z: 0 },
-      scale:    { x: 1, y: 1, z: 1 }, // Escala más grande
+      rotation: { x: 0, y: 0, z: 0 },
+      scale:    { x: 0.005, y: 0.005, z: 0.005}, // Escala más grande
+      animation: { duration: 2, ease: 'power1.inOut' }, // Animación personalizada
     },
     {
       id: 'team',
-      position: { x: -1, y: -1, z: -5 },
-      rotation: { x: 0, y: 0.5, z: 0 },
-      scale:    { x: 0.8, y: 0.8, z: 0.8 }, // Escala más pequeña
+      position: { x: 11, y: 2, z: 0 },
+      rotation: { x: 0, y: 3, z: 0.5 },
+      scale: { x: 0.02, y: 0.02, z: 0.02 }, // Escala más pequeña
+      animation: { duration: 1, ease: 'power3.out' }, // Animación personalizada
     },
     {
       id: 'contact',
       position: { x: 0.8, y: -1, z: 0 },
       rotation: { x: 0.3, y: -0.5, z: 0 },
-      scale:    { x: 1.2, y: 1.2, z: 1.2 }, // Escala ligeramente más grande
+      scale:    { x: 0.009, y: 0.009, z: 0.009 }, // Escala ligeramente más grande
+      animation: { duration: 1.8, ease: 'power4.inOut' }, // Animación personalizada
+    },
+     {
+      id: 'footer',
+      position: { x: -13, y: -8, z: -4 },
+      rotation: { x: 0, y: 0, z: 0 },
+      scale:    { x: 0.005, y: 0.005, z: 0.005}, // Escala más grande
+      animation: { duration: 2, ease: 'power5.inOut' }, // Animación personalizada
     },
   ];
 
@@ -129,15 +140,18 @@ export class ThreeDAnimationComponent implements AfterViewInit {
   }
 
   private modelMove(): void {
-    const sections = document.querySelectorAll('#home, #service, #team, #contact');
+    const sections = document.querySelectorAll('#home, #service, #team, #contact, #footer');
     let currentSection: string | undefined;
 
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight / 3) {
-        currentSection = section.id;
-      }
-    });
+   sections.forEach((section) => {
+  const rect = section.getBoundingClientRect();
+  const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+
+  if (visibleHeight > 50) { // Se considera visible si al menos 50px están en pantalla
+    currentSection = section.id;
+  }
+});
+
 
     const positionActive = this.arrPositionModel.find(
       (val) => val.id === currentSection
@@ -169,7 +183,7 @@ export class ThreeDAnimationComponent implements AfterViewInit {
   }
 
   private setupEventListeners(): void {
-    const container = this.elementRef.nativeElement.querySelector('#container3D');
+    const container = this.renderer.domElement; // Directly use the WebGLRenderer's DOM element
 
     container.addEventListener('mousedown', (event: MouseEvent) => {
       if (!this.bee) return;
@@ -178,32 +192,31 @@ export class ThreeDAnimationComponent implements AfterViewInit {
       this.startY = event.clientY;
       this.initialRotation.x = this.bee.rotation.x;
       this.initialRotation.y = this.bee.rotation.y;
-      container.classList.add('object-grabbing');
-    });
 
-    container.addEventListener('mousemove', (event: MouseEvent) => {
-      if (!this.bee || !this.isDragging) return;
-
-      const deltaX = event.clientX - this.startX;
-      const deltaY = event.clientY - this.startY;
-      const sensitivity = 0.005;
-
-      this.bee.rotation.y = this.initialRotation.y + deltaX * sensitivity;
-      this.bee.rotation.x = this.initialRotation.x + deltaY * sensitivity;
+      container.style.cursor = 'grabbing'; // Change cursor style
     });
 
     container.addEventListener('mouseup', () => {
       if (!this.bee) return;
       this.isDragging = false;
-      container.classList.remove('object-grabbing');
-      this.modelMove(); // Restaura la posición y rotación basadas en la sección activa
+      container.style.cursor = 'default'; // Reset cursor style
+      this.modelMove(); // Restore position and rotation based on the active section
     });
 
     container.addEventListener('mouseleave', () => {
       if (!this.bee) return;
       this.isDragging = false;
-      container.classList.remove('object-grabbing');
-      this.modelMove(); // Restaura la posición y rotación basadas en la sección activa
+      container.style.cursor = 'default'; // Reset cursor style
+      this.modelMove(); // Restore position and rotation based on the active section
+    });
+
+    container.addEventListener('mousemove', (event: MouseEvent) => {
+      if (!this.isDragging || !this.bee) return;
+      const deltaX = event.clientX - this.startX;
+      const deltaY = event.clientY - this.startY;
+
+      this.bee.rotation.y = this.initialRotation.y + deltaX * 0.01;
+      this.bee.rotation.x = this.initialRotation.x + deltaY * 0.01;
     });
 
     window.addEventListener('scroll', () => {
@@ -218,4 +231,10 @@ export class ThreeDAnimationComponent implements AfterViewInit {
       this.camera.updateProjectionMatrix();
     });
   }
-}
+
+  ngOnDestroy(): void {
+    const container = this.elementRef.nativeElement.querySelector('#container3D');
+    if (container) {
+      container.removeChild(this.renderer.domElement);
+    }
+  }}

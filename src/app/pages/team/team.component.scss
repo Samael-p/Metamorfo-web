@@ -1,23 +1,26 @@
+
+
 .team-container {
-    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    padding: 15rem 2rem 2rem; // ⬅ extra padding arriba
-    position: relative;
+    padding: 1rem; // ⬅ extra padding arriba
+    margin: 0 auto;
 
     color: #fff;
-    min-height: 500px;
+    min-height: 100vh;
     flex-wrap: wrap;
-    height: 100vh;
+    height: auto;
+    max-width: 1000px;
     @media (max-width: 768px) {
-        width: 100%;
-        height: 100vh;
+      padding:  50px 0;
+        width: 100;
+        height: auto;
       }
   }
   
-.conainer-infoCards{
+.container-infoCards{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -26,9 +29,10 @@
     position: relative;
     color: #fff;
     min-height: 100px;
+    width: 1000px;
     flex-wrap: wrap;
     background-color: #0000001a;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 20px;
     z-index: 9;
@@ -38,6 +42,7 @@
     box-shadow: #0073e6;
   @media screen and (max-width: 768px) {
     gap: 1rem;
+    margin: 0 20px;
     justify-items: center;
   }
 }
@@ -45,13 +50,18 @@
 
 
   .team-title {
-    position: absolute;
-    top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
     text-align: center;
     width: 100%;
-    max-width: 800px;
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 1000px;
+    padding: 0 2rem;
+    margin: 0 auto;
+    font-size: 3rem;
     margin-bottom: 1rem;
     
   
@@ -62,8 +72,10 @@
   
       .highlight {
         color: #00d4ff;
-      }
+      } 
+     
     }
+    
   
     .subtitle {
       font-size: 1rem;
@@ -72,13 +84,24 @@
     }
   }
 
+  @media screen and (max-width: 768px) {
+    
+      .h2 {
+        font-size: 5rem;
+        margin-bottom: 0.5rem;
+        padding: 0 14px;
+      }
+      .highlight {
+        color: #020e11;
+      } 
+    }
 
   .carousel {
     position: relative;
     width: 300px;
     height: 400px;
     perspective: 1500px;
-
+    
     @media (max-width: 768px) {
         width: 80vw;
         height: 250px;
@@ -155,9 +178,9 @@
     gap: 1rem;
     @media screen and (max-width: 768px) {
       justify-content: center;
-      max-width: 100%;
-      padding: 1rem;
-      gap: 0;
+      max-width: 90%;
+      padding: 0;
+      gap: 0.1px;
     }
   }
   
@@ -176,107 +199,141 @@
     line-height: 1.5;
   }
   
-  /* Estilo de los iconos en SCSS */
+  /* Estilo de los iconos */
 .social-icons {
-    display: flex;
-    gap: 1rem;
-    justify-content: start;
-    margin-top: 1rem;
-    z-index: 12;
-  
-    a {
-      color: #333;
-      font-size: 1.5rem;
-      transition: transform 0.3s ease;
-  
-      &:hover {
-        color: #0073e6; /* Cambiar color al hacer hover */
-        transform: scale(0.9); /* Efecto de aumentar tamaño */
-      }
-    }
-  }
-  
-  /* Puedes aplicar este estilo a los iconos de redes sociales */
-  .social-icons a.facebook {
-    color: #ffffff; /* Color de Facebook */
-    &:hover {
-        color: rgb(49, 128, 255);
-    }
-  }
-  
-  .social-icons a.twitter {
-    color: #ffffff; /* Color de Twitter */
-    &:hover {
-        color: aqua;
-    }
-  }
-  
-  .social-icons a.linkedin {
-    color: #ffffff; /* Color de LinkedIn */
-    &:hover {
-        color: aqua;
-    }
-  }
-  
-  .social-icons a.instagram {
-    color: #ffffff; /* Color de Instagram */
-    &:hover {
-        background-image: linear-gradient(
-    45deg,
-    #405de6,
-    #5b51db,
-    #b33ab4,
-    #c135b4,
-    #e1306c,
-    #fd1f1f
-  );
-  background-clip: text;
-  -webkit-background-clip: text; /* Aplica el fondo al texto */
-  color: transparent; /* Hace que el texto sea transparente para mostrar el gradiente */
+  display: flex;
+  gap: 1rem;
+  justify-content: start;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
+
+.social-icons a {
+  color: #ffffff;/* Color blanco por defecto */
+   
+  transition: transform 2s ease, opacity 0.3s ease;
+    
+
+  &.facebook:hover {
+    color: #1877F2; /* Cambia el color al hacer hover para Facebook */
+    transform: translatey(-9px);
+    transition: transform 10.5s ease, opacity 0.3s ease;
+  }
+
+  &.github:hover {
+    color: rgb(219, 143, 0); /* Cambia el color al hacer hover para GitHub */
+    transform: translatey(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.linkedin:hover {
+    color: aqua; /* Cambia el color al hacer hover para LinkedIn */
+    transform: translatey(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.twitter:hover {
+    color: #1DA1F2; /* Cambia el color al hacer hover para Twitter */
+    transform: translatey(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.youtube:hover {
+    color: #FF0000; /* Cambia el color al hacer hover para YouTube */
+    transform: translatey(-9px);  
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.tiktok:hover {
+    color: #000000; /* Cambia el color al hacer hover para TikTok */
+    transform: translatey(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.whatsapp:hover {
+    color: #25D366; /* Cambia el color al hacer hover para WhatsApp */
+    transform: translateY(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.telegram:hover {
+    color: #0088cc; /* Cambia el color al hacer hover para Telegram */
+  transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.discord:hover {
+    color: #7289DA; /* Cambia el color al hacer hover para Discord */
+    transform: translateY(-9px);
+    transition: transform 0.5s ease, opacity 0.3s ease;}
+
+  &.instagram:hover {
+    background-image: linear-gradient(
+      45deg,
+      #405de6,
+      #5b51db,
+      #b33ab4,
+      #c135b4,
+      #e1306c,
+      #fd1f1f
+    );
+    background-clip: text;
+    -webkit-background-clip: text; /* Aplica el fondo al texto */
+    color: transparent; 
+    transform: translateY(-9px);
+     transition: transform 0.5s ease, opacity 0.3s ease; /* Hace que el texto sea transparente para mostrar el gradiente */
   }
   
-  
-  .controls {
+
+}
+
+.controls {
+  display: flex;
+  justify-content: start;
+  gap: 1rem;
+  margin-top: 2rem;
+
+  button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #1e1e1e;
+    color: white;
+    border: none;
+    box-shadow: 8px 8px 16px #000000, -1px -1px 18px #757575;
+    cursor: pointer;
     display: flex;
-    justify-content: start;
-    gap: 1rem;
-    margin-top: 2rem;
-  
-    button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #1e1e1e;
-      color: white;
-      border: none;
-      box-shadow: 8px 8px 16px #000000, -1px -1px 18px #757575;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 
-      i {
-      font-size: 1.5rem;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      }
+    &:focus {
+      outline: none;
+      border: 2px solid rgba(0, 0, 0, 0); /* Agrega un borde blanco al hacer clic */
+    }
 
-      &:hover i.fa-chevron-right {
+    &:hover i.fa-chevron-right {
       transform: translateX(5px); /* Mueve la flecha hacia la derecha */
       opacity: 1; /* Desaparece la flecha */
-      }
-      &:hover i.fa-chevron-left {
+      transition: transform 0.3s ease, opacity 0.3s ease; /* Agrega tiempo a la animación */
+    }
+
+    &:hover i.fa-chevron-left {
       transform: translateX(-5px); /* Mueve la flecha hacia la izquierda */
       opacity: 1; /* Desaparece la flecha */
-      }
-
+      transition: transform 0.3s ease, opacity 0.3s ease; /* Agrega tiempo a la animación */
     }
-    
-    @media screen and (max-width: 768px) {
-      justify-content: center;
-      gap: 0.5rem;
-    
+
+    i.fa-chevron-right,
+    i.fa-chevron-left {
+      transition: transform 1.3s ease, opacity 0.3s ease; /* Suaviza el regreso al estado inicial */
     }
   }
+
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    gap: 10rem;
+    margin-top: 1rem;
+
+    button {
+      width: 40px;
+      height: 40px;
+      box-shadow: 1px 1px 1px #000000, -1px -1px 18px #000000;
+    }
+  }
+}
+    
+  
   

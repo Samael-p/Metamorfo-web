@@ -1,29 +1,357 @@
 *{
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
-#navbar{
-    position: fixed;
-    right: 250px;
-    left: 250px;
-    z-index: 10; // asegura que esté encima de otros elementos
-    padding: 0.5rem; // opcional
+
+#home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+    background-image: url('/assets/assetsHome/home2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#container{
+    position: absolute;
+    display: flex;
+    top: 12.2%;
+    left: 16.5%;
+    border: 3px solid rgb(0, 0, 0);
+    //box-shadow: ;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 67%;
+    
+}
+
+.containerHome { 
+  pointer-events: auto;
+  transform-origin: center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+
+  backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;
+  position: absolute;
+  top: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 570px;
+  height: 300px;
+  border: 3px solid;
+  border-radius: 20px;
+  border-image: linear-gradient(90deg, #00f0ff, #d400ff) 1;
+  box-shadow: 0 0 15px #00f0ff, 0 0 30px #d400ff;
+  box-sizing: border-box;
+  
+  overflow: hidden;
+  z-index: 100; // Asegúrate de estar encima
+  transition: all 0.8s ease; // transición completa
+
+  .cuadro-content {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    
+    transition: opacity 0.3s ease;
+    text-align: center;
+    color: white;
+    
+  }
+
+  &.activo {
+    width: 80vw;
+    height: 70vh;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px #00f0ff;
+    
+    .cuadro-content {
+      opacity: 1;
+    }
+  }
+}
+  .boton{all: unset;
+    position: absolute;
+    top:3%;
+    right: 3%;
+    
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 2px 7px;
 
 }
-@media screen and (max-width: 764px) {
-     #navbar{
-        right: 10px;
-        left: 10px;
-     }
-      
+
+
+
+
+/*.containerHome{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        border: 3px solid white;
+        top: 2%;
+        align-items: center;
+        width: 570px;
+        height: 300px;
+        border: 3px solid;
+        border-radius: 20px;
+        padding: 20px;
+        background: transparent;
+        border-image: linear-gradient(90deg, #00f0ff, #d400ff) 1;
+        box-shadow: 0 0 15px #00f0ff, 0 0 30px #d400ff;
+        box-sizing: border-box;
+
+
+        .cuadro-content {
+                flex: 1;
+                width: 100%;
+                height: 100%;
+                
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        text-align: center;
+        color: white;
+  }
+
+  &.activo {
+width: 70vw;
+height: 90vh;
+    transform: scale(1.3);
+    z-index: 10;
+    box-shadow: 0 0 20px #00f0ff;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    .cuadro-content {
+      opacity: 1;
     }
-.content {
-    padding-top: 80px; // ajusta según la altura de tu navbar
+  }
+
+}*/
+
+
+
+  .orbe{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(124, 10, 190);
+    background-color: black;
+
+    left: 50%;
+    top: 15px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    z-index: 12;
+      .imgH {
+      position: absolute;
+      left: 12%;
+      top: -52px;
+      width: 300px; // más grande que el orbe
+      transform: rotate(-20deg) translateX(-50px); // inclina y desplaza
+      transition: transform 0.5s ease;
+      z-index: 11;
+      }// Opcional: efecto de ala "saliente"  
+  }
+
+  .cuadro1{
+    position: absolute;
+    width: 280px;
+    height: 180px;
+    border: 2px solid white;
+    top: 2%;
+    left: 2%;
+    overflow: hidden;
+    z-index: 100; // Asegúrate de estar encima
+    transition: all 1.8s ease; // transición completa
+      .cuadro-content {
+      flex: 1;
+      width: 100%;
+      height: 100%;
+      
+      transition: opacity 1.3s ease;
+      text-align: center;
+      color: white;
+      }
+        &.activo {
+          width: 63.5vw;
+          height: 70vh;
+          z-index: 10000;
+          background-color: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 20px #00f0ff;
+
+            .cuadro-content {
+              opacity: 1;
+            }
+        }
+  }
+  .cuadrosServicios{
+    display: flex;
+    flex-wrap: wrap; // 👈 Permite que los cuadros bajen a la siguiente línea
+    justify-content: center;
+    align-items: flex-start; // 👈 Evita estirarlos verticalmente
+    //border: 1px solid red;
+    position: absolute;
+    top: 0;
+    padding-top: 27%;
+    height: auto; // 👈 Permite que crezca si hay más cuadros en varias filas
+    width: 100%;
+    gap: 30px 2.2%; 
+    //padding-bottom: 20px; // Espacio para que no se corte al hacer varias filas
+      .cuadro{
+      flex: 0 0 auto; // 👈 No crecer, no reducir, tamaño fijo
+      }
+        .cTitle{
+        font-size: 18px;
+        }
+        .imgServs{
+          height: 100px;
+          width: 100px;
+          &::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            inset: 0;
+            position: absolute;
+          background: inherit;
+          filter: blur(15px) contrast(200%);
+          z-index: -1;
+          
+          }
+        
+        }
+
+  .cuadro{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 140px;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.137);
+  overflow: hidden;
+  transition: all 1.8s ease;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+      cursor: pointer;
+      &:hover{
+        transform: scale(1.01);
+  box-shadow: 0 10px 20px rgba(41, 202, 207, 0.719);
+      }
+      .cuadro-content {
+      display: flex; // <-- Añadido
+      justify-content: center; // <-- Añadido
+      align-items: center; // <-- Añadido
+      flex-direction: column; // <-- Añadido
+      width: 100%;
+      height: 100%;
+      transition: opacity 1.3s ease;
+      text-align: center;
+      color: white;
+     
+        }
+        &.activo {
+          position: absolute;
+          width: 63.5vw;
+          height: 70vh;
+          z-index: 10000;
+          top: 2px;
+          background-color: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 20px #00f0ff;
+
+            .cuadro-content {
+              opacity: 1;
+              
+            }
+        }
+  }
+
+.C2 {
+  color: #00f0ff;
+ } // Ya contiene todo correcto, no necesita cambios extra
+.C3 {
+ backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;}
+.C4 {
+ backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;}
+.C5 {
+ backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;}
+.C6 {
+ backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;}
+.C7 {
+ backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+        cursor: pointer;}
 }
-.home{
-    
-    min-height: 100vh;
-   
-    min-height: 100vh;
-    font-family: sans-serif;
+.titleHome{
+  position:absolute;
+  
+ display: flex;
+ align-items: center;
+ top: 30%;
+ left: 10%;
+ 
+ padding:0;
+ margin: 0;
+ 
 }
+.mainTitle{
+ display: flex;
+font-size: 40px;
+}
+.secondaryTitle{
+  position: absolute;
+  top: 80%;
+  right: 10%;
+  font-size: 20px;
+}
+
+
+#morph-container {
+  position: absolute;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  left: 30%;
+
+  bottom: 30%;
+  z-index: 2222;
+
+  // Este filtro permite el efecto morphing
+  filter: url(#threshold) blur(0.6px);
+
+  .text {
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  color: #09addf;
+  
+  font-size: 20pt;
+  font-weight: bold;
+  text-align: center;
+
+  user-select: none;
+  }
+
+}
+

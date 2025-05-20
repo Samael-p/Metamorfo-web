@@ -1,8 +1,199 @@
-<div id="home" class="home">
-    <app-three-d-animation></app-three-d-animation>
+<section id="home">
     <app-navbar id="navbar"></app-navbar>
-    <section class="content">
-    <h1>Bienvenido</h1>
-    <p>Esta es la página principal</p>
-    </section>
-</div>
+    <div id="container" class="container1">
+        <div class="containerHome"(click)="$event.stopPropagation()"
+            
+            [ngClass]="{ 'activo': cuadroActivo === '' }"
+            (click)="activarCuadro($event, '')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== ''">
+                    <div class="titleHome">
+                    <h1 class="mainTitle">METAmorfo</h1>
+                      <p class="secondaryTitle">Digital</p>
+                    </div>
+                    <div id="morph-container">
+                        <span #text1 class="text"></span>
+                        <span #text2 class="text"></span>
+                    </div>
+                    <div class="orbe" ><img src="/assets/assetsHome/Morfy 1.png" alt="imagen" class="imgH" /></div>
+                    <svg id="filters">
+                        <defs>
+                            <filter id="threshold">
+                                <feColorMatrix in="SourceGraphic"
+                                    type="matrix"
+                                    values="1 0 0 0 0
+                                            0 1 0 0 0
+                                            0 0 1 0 0
+                                            0 0 0 255 -140" />
+                            </filter>
+                        </defs>
+                    </svg>  
+                            
+                </ng-container>
+                <ng-container>
+                    <app-home *ngIf="cuadroActivo === ''"></app-home>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === ''" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div>
+            
+        </div>
+       
+        <div class="cuadro1"  (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'team' }"
+            (click)="activarCuadro($event, 'team')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'team'">
+                    <div class="titleHome">
+                        <h3 class="c1Title">METAmorfo</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                  <!-- home.component.html -->
+                    
+                    <app-team *ngIf="cuadroActivo === 'team'"></app-team>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'team'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+              </div>
+        </div> 
+        <div class="cuadrosServicios"> <!-- servicios -->
+        <div class="cuadro C2" (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'tresD' }"
+            (click)="activarCuadro($event, 'tresD')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'tresD'">
+                    
+
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/3D.png" alt="">
+                    <h3 class="cTitle">3D</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    <app-tres-d *ngIf="cuadroActivo === 'tresD'"></app-tres-d>
+
+                    
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'tresD'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div>
+        </div>
+        <!-- Desarrollo web -->
+        <div class="cuadro C3"(click)="$event.stopPropagation()" 
+            [ngClass]="{ 'activo': cuadroActivo === 'webDev' }"
+            (click)="activarCuadro($event, 'webDev')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'webDev'">
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/webDev.png" alt="">
+                    <h3 class="cTitle">Desarrollo web</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    
+                    <app-desarrollo-web *ngIf="cuadroActivo === 'webDev'"></app-desarrollo-web>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'webDev'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div>
+        </div>
+        <!--Branding-->
+        <div class="cuadro C4" (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'Branding' }"
+            (click)="activarCuadro($event, 'Branding')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'Branding'">
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/Branding.png" alt="">
+                    <h3 class="cTitle">Branding</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    
+                    <app-branding *ngIf="cuadroActivo === 'Branding'"></app-branding>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'Branding'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div>
+
+        </div>
+        <div class="cuadro C5"
+    (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'autoProcs' }"
+            (click)="activarCuadro($event, 'autoProcs')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'autoProcs'">
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/Automatizacion.png" alt="">
+                    <h3 class="cTitle">Automatizacion de Procesos</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    
+                    <app-automatizacion-procesos *ngIf="cuadroActivo === 'autoProcs'"></app-automatizacion-procesos>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'autoProcs'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div></div>
+        <div class="cuadro C6"
+    (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'CursosTalleres' }"
+            (click)="activarCuadro($event, 'CursosTalleres')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'CursosTalleres'">
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/Cursos y Talleres.png" alt="">
+                    <h3 class="cTitle">Cursos y Talleres</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    
+                    <app-cursos-talleres *ngIf="cuadroActivo === 'CursosTalleres'"></app-cursos-talleres   >
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'CursosTalleres'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div></div>
+        <div class="cuadro C7"
+    (click)="$event.stopPropagation()"
+            [ngClass]="{ 'activo': cuadroActivo === 'multimedia' }"
+            (click)="activarCuadro($event, 'multimedia')">
+            <div class="cuadro-content">
+                <ng-container *ngIf="cuadroActivo !== 'multimedia'">
+                    <div class="logoName">
+                        <img class="imgServs" src="assets/icons/Producción Multimedia.png" alt="">
+                    <h3 class="cTitle">Producción Multimedia</h3>
+                    </div>
+                </ng-container>
+                <ng-container>
+                <!-- home.component.html -->
+                    
+                    <app-produccion-multimedia *ngIf="cuadroActivo === 'multimedia'"></app-produccion-multimedia>
+                        <button 
+                        class="boton" 
+                        *ngIf="cuadroActivo === 'multimedia'" 
+                        (click)="cerrarCuadro($event)">Cerrar</button>
+                </ng-container>
+            </div></div>
+        </div>
+      </div>
+</section>

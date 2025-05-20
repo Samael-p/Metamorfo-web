@@ -1,9 +1,10 @@
+<section >
 <div class="team-container">
     <div class="team-title">
         <h2>Conoce al equipo detrás de <span class="highlight">nuestra empresa</span></h2>
         <p class="subtitle">Profesionales apasionados que impulsan la innovación y la excelencia.</p>
       </div>
-    <div class="conainer-infoCards">
+    <div class="container-infoCards">
     <!-- Imágenes apiladas a la izquierda -->
     <div class="carousel">
         <div class="card-stack">
@@ -30,14 +31,26 @@
             <a *ngIf="currentTestimonial.socialLinks.facebook" href="{{ currentTestimonial.socialLinks.facebook }}" target="_blank" class="facebook">
               <i class="fab fa-facebook"></i>
             </a>
-            <a *ngIf="currentTestimonial.socialLinks.twitter" href="{{ currentTestimonial.socialLinks.twitter }}" target="_blank" class="twitter">
-              <i class="fab fa-twitter"></i>
+            <a *ngIf="currentTestimonial.socialLinks.github" href="{{ currentTestimonial.socialLinks.github }}" target="_blank" class="github">
+              <i class="fab fa-github"></i>
             </a>
             <a *ngIf="currentTestimonial.socialLinks.linkedin" href="{{ currentTestimonial.socialLinks.linkedin }}" target="_blank" class="linkedin">
               <i class="fab fa-linkedin"></i>
             </a>
             <a *ngIf="currentTestimonial.socialLinks.instagram" href="{{ currentTestimonial.socialLinks.instagram }}" target="_blank" class="instagram">
               <i class="fab fa-instagram"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.twitter" href="{{ currentTestimonial.socialLinks.twitter }}" target="_blank" class="twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.whatsapp" href="{{ currentTestimonial.socialLinks.whatsapp }}" target="_blank" class="whatsapp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.youtube" href="{{ currentTestimonial.socialLinks.youtube }}" target="_blank" class="youtube">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a *ngIf="currentTestimonial.socialLinks.tiktok" href="{{ currentTestimonial.socialLinks.tiktok }}" target="_blank" class="tiktok">
+              <i class="fab fa-tiktok"></i> 
             </a>
           </div>
           
@@ -53,4 +66,4 @@
       </div>
     </div>
   </div>
-  
+</section>

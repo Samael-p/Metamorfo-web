@@ -18,10 +18,11 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@splinetool/loader": "^1.9.96",
     "font-awesome": "^4.7.0",
     "gsap": "^3.13.0",
     "rxjs": "~7.8.0",
-    "three": "^0.176.0",
+    "three": "^0.150.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

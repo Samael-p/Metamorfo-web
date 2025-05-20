@@ -4,18 +4,22 @@
 }
 
 nav {
-    background-color: #0000002d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 8px;
-    
-    padding: 10px 100px;
+    padding: 10px 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-  
+    border-bottom: 2px solid;
+    margin: 0 10%;
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      justify-content: center;
+      gap: 15%;
     }
   
     #logoSvg path {
@@ -39,7 +43,9 @@ nav {
       stroke-dashoffset: 0;
     }
   }
-    @media screen and (max-width: 764px) {
+ @media screen and (max-width: 600px), screen and (min-width: 768px) and (max-width: 992px) {
+  /* estilos aplican si la pantalla es menor a 600px O entre 768px y 992px */
+
       padding: 1px 10px;
   
       .nav-container {
@@ -265,7 +271,7 @@ nav {
     
   }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 992px) {
     
         .hamburger {
         display: block;
@@ -283,12 +289,12 @@ nav {
           #menu-toggle:checked + .hamburger span {
             opacity: 0;
           }
-       .logo{
-       
+      .logo{
+      
         transform: scale(0.6);
         
       
-       }
+      }
           
 
     
@@ -304,7 +310,7 @@ nav {
     backdrop-filter: blur( 10px );
     -webkit-backdrop-filter: blur( 15px );
         
- 
+
       width: 100%;
       padding: 10px 0;
       position: absolute;

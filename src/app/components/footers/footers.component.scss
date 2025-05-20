@@ -1,8 +1,9 @@
 $link-light-grey: #6c757d;
 $primary-orange: #ffffff; //before: fed136
 $footer-background-light-grey: #212529;
-$footer-background-grey: #1a1d20;
+$footer-background-grey: #1a1d2000;
 $social-buttons-circle-dark-grey: #1a1d20;
+
 
 
 #logoSvg path {
@@ -62,13 +63,14 @@ a:hover {
 }
 
 footer {
+  
   padding: 2rem 0;
   background-color: #212529;
   position: relative;
   overflow: hidden;
   transform-origin: top; /* Escalar desde la parte superior */
   transition: transform 0.3s ease-out;
-
+ z-index: -1;
   .logoFooter {
     transition: transform 0.3s ease-out;
   }
@@ -90,6 +92,7 @@ footer {
   }
 
 .footer-column {
+  
   text-align: center;
   //border: red solid 1px;
   .nav-item {
