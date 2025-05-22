@@ -43,7 +43,7 @@ nav {
       stroke-dashoffset: 0;
     }
   }
- @media screen and (max-width: 600px), screen and (min-width: 768px) and (max-width: 992px) {
+ @media screen and (max-width:  1299px), screen and (min-width: 768px) and (max-width: 992px) {
   /* estilos aplican si la pantalla es menor a 600px O entre 768px y 992px */
 
       padding: 1px 10px;
@@ -348,4 +348,8 @@ nav {
     .whars {
         animation: pulsew 2s infinite;
     }
+}
+
+@media (max-width: 1299px) and (min-width:768px){
+
 }

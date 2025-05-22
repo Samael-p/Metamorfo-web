@@ -9,7 +9,7 @@
     margin: 0 auto;
 
     color: #fff;
-    min-height: 100vh;
+    min-height: 10vh;
     flex-wrap: wrap;
     height: auto;
     max-width: 1000px;
@@ -29,7 +29,7 @@
     position: relative;
     color: #fff;
     min-height: 100px;
-    width: 1000px;
+    width: 900px;
     flex-wrap: wrap;
     background-color: #0000001a;
     backdrop-filter: blur(20px);
@@ -98,8 +98,8 @@
 
   .carousel {
     position: relative;
-    width: 300px;
-    height: 400px;
+    width: 250px;
+    height: 300px;
     perspective: 1500px;
     
     @media (max-width: 768px) {
@@ -335,5 +335,70 @@
   }
 }
     
+@media (max-width: 1299px) and (min-width:768px){
+  .team-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 2rem;
+    margin: 0 auto;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    
   
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+  
+      .highlight {
+        color: #00d4ff;
+      } 
+     
+    }
+    
+  
+    .subtitle {
+      font-size: 0.8rem;
+      color: #bbb;
+      margin-top: 0.5rem;
+    }
+  }
+
+
+  .container-infoCards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    position: relative;
+    color: #fff;
+    min-height: 100px;
+    width: 900px;
+    flex-wrap: wrap;
+    background-color: #0000001a;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    z-index: 9;
+    padding: 10px;
+    box-shadow: 0 5px 3px 0 rgba(255, 255, 255, 0.13);
+    border: 0.1px solid rgba(0, 0, 0, 0.171);
+    box-shadow: #0073e6;
+  }
+
+  #logoSvg{
+    height: 40px;
+    width: 150px;
+  }
+
+}
+
   

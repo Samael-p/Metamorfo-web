@@ -9,7 +9,7 @@
                 <ng-container *ngIf="cuadroActivo !== ''">
                     <div class="titleHome">
                     <h1 class="mainTitle">METAmorfo</h1>
-                      <p class="secondaryTitle">Digital</p>
+                        <p class="secondaryTitle">Digital</p>
                     </div>
                     <div id="morph-container">
                         <span #text1 class="text"></span>
@@ -44,10 +44,11 @@
         <div class="cuadro1"  (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'team' }"
             (click)="activarCuadro($event, 'team')">
-            <div class="cuadro-content">
+            <div class="cuadroTeam">
                 <ng-container *ngIf="cuadroActivo !== 'team'">
-                    <div class="titleHome">
-                        <h3 class="c1Title">METAmorfo</h3>
+                    <div class="logoName">
+                    <img class="imgTeam" src="assets/icons/Team.png" alt="">
+                        <h3 class="c1Title">NUESTRO EQUIPO</h3>
                     </div>
                 </ng-container>
                 <ng-container>
@@ -65,11 +66,11 @@
         <div class="cuadro C2" (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'tresD' }"
             (click)="activarCuadro($event, 'tresD')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'tresD'">
                     
 
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/3D.png" alt="">
                     <h3 class="cTitle">3D</h3>
                     </div>
@@ -90,9 +91,9 @@
         <div class="cuadro C3"(click)="$event.stopPropagation()" 
             [ngClass]="{ 'activo': cuadroActivo === 'webDev' }"
             (click)="activarCuadro($event, 'webDev')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'webDev'">
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/webDev.png" alt="">
                     <h3 class="cTitle">Desarrollo web</h3>
                     </div>
@@ -112,9 +113,9 @@
         <div class="cuadro C4" (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'Branding' }"
             (click)="activarCuadro($event, 'Branding')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'Branding'">
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/Branding.png" alt="">
                     <h3 class="cTitle">Branding</h3>
                     </div>
@@ -135,9 +136,9 @@
     (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'autoProcs' }"
             (click)="activarCuadro($event, 'autoProcs')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'autoProcs'">
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/Automatizacion.png" alt="">
                     <h3 class="cTitle">Automatizacion de Procesos</h3>
                     </div>
@@ -156,9 +157,9 @@
     (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'CursosTalleres' }"
             (click)="activarCuadro($event, 'CursosTalleres')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'CursosTalleres'">
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/Cursos y Talleres.png" alt="">
                     <h3 class="cTitle">Cursos y Talleres</h3>
                     </div>
@@ -177,9 +178,9 @@
     (click)="$event.stopPropagation()"
             [ngClass]="{ 'activo': cuadroActivo === 'multimedia' }"
             (click)="activarCuadro($event, 'multimedia')">
-            <div class="cuadro-content">
+            <div class="cuadroCont">
                 <ng-container *ngIf="cuadroActivo !== 'multimedia'">
-                    <div class="logoName">
+                    <div class="logoNames">
                         <img class="imgServs" src="assets/icons/Producción Multimedia.png" alt="">
                     <h3 class="cTitle">Producción Multimedia</h3>
                     </div>
@@ -193,7 +194,16 @@
                         *ngIf="cuadroActivo === 'multimedia'" 
                         (click)="cerrarCuadro($event)">Cerrar</button>
                 </ng-container>
-            </div></div>
+            </div>
         </div>
-      </div>
+                
+        </div>
+        </div>
+
+     
+    <!--  <div class="animacio3d">
+<iframe class="impresora" src='https://my.spline.design/3dprinter-Ti9iUE0ziyW3ElDaZFdMMqyq/' frameborder='0' width='100%' height='100%'></iframe>
+<iframe class="robot" src='https://my.spline.design/genkubgreetingrobot-RQ325yr15spWgbLmf1fqj8OM/' frameborder='0' width='100%' height='100%'></iframe>
+</div>-->
+
 </section>

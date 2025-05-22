@@ -76,8 +76,36 @@
       opacity: 1;
     }
   }
-}
-  .boton{all: unset;
+  
+} 
+
+.orbe{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid rgb(124, 10, 190);
+    background-color: black;
+
+    left: 50%;
+    top: 15px;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    z-index: 12;
+      .imgH {
+      position: absolute;
+      left: 12%;
+      top: -52px;
+      width: 300px; // más grande que el orbe
+      transform: rotate(-20deg) translateX(-50px); // inclina y desplaza
+      transition: transform 0.5s ease;
+      z-index: 11;
+      }// Opcional: efecto de ala "saliente"  
+  }
+
+  .boton{
+    all: unset;
     position: absolute;
     top:3%;
     right: 3%;
@@ -87,8 +115,6 @@
     padding: 2px 7px;
 
 }
-
-
 
 
 /*.containerHome{
@@ -136,171 +162,190 @@ height: 90vh;
 }*/
 
 
-
-  .orbe{
+.cuadro1{
+  display: flex;
     position: absolute;
-    display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid rgb(124, 10, 190);
-    background-color: black;
-
-    left: 50%;
-    top: 15px;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    z-index: 12;
-      .imgH {
-      position: absolute;
-      left: 12%;
-      top: -52px;
-      width: 300px; // más grande que el orbe
-      transform: rotate(-20deg) translateX(-50px); // inclina y desplaza
-      transition: transform 0.5s ease;
-      z-index: 11;
-      }// Opcional: efecto de ala "saliente"  
-  }
-
-  .cuadro1{
-    position: absolute;
     width: 280px;
     height: 180px;
-    border: 2px solid white;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
     top: 2%;
     left: 2%;
     overflow: hidden;
     z-index: 100; // Asegúrate de estar encima
     transition: all 1.8s ease; // transición completa
-      .cuadro-content {
-      flex: 1;
-      width: 100%;
-      height: 100%;
+     .logoName{
       
-      transition: opacity 1.3s ease;
-      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity ease;
+      flex-direction: row;
       color: white;
-      }
-        &.activo {
-          width: 63.5vw;
-          height: 70vh;
-          z-index: 10000;
-          background-color: rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 20px #00f0ff;
-
-            .cuadro-content {
-              opacity: 1;
-            }
-        }
-  }
-  .cuadrosServicios{
-    display: flex;
-    flex-wrap: wrap; // 👈 Permite que los cuadros bajen a la siguiente línea
-    justify-content: center;
-    align-items: flex-start; // 👈 Evita estirarlos verticalmente
-    //border: 1px solid red;
-    position: absolute;
-    top: 0;
-    padding-top: 27%;
-    height: auto; // 👈 Permite que crezca si hay más cuadros en varias filas
-    width: 100%;
-    gap: 30px 2.2%; 
-    //padding-bottom: 20px; // Espacio para que no se corte al hacer varias filas
-      .cuadro{
-      flex: 0 0 auto; // 👈 No crecer, no reducir, tamaño fijo
-      }
-        .cTitle{
-        font-size: 18px;
-        }
-        .imgServs{
-          height: 100px;
-          width: 100px;
-          &::after{
-            content: '';
-            width: 100%;
-            height: 100%;
-            inset: 0;
-            position: absolute;
-          background: inherit;
-          filter: blur(15px) contrast(200%);
-          z-index: -1;
-          
-          }
-        
-        }
-
-  .cuadro{
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 180px;
-  height: 140px;
-  flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.137);
-  overflow: hidden;
-  transition: all 1.8s ease;
-  z-index: 100;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 20px;
+    }
+      .cuadroTeam {
+      height: 100px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      &:hover{
-        transform: scale(1.01);
-  box-shadow: 0 10px 20px rgba(41, 202, 207, 0.719);
-      }
-      .cuadro-content {
-      display: flex; // <-- Añadido
-      justify-content: center; // <-- Añadido
-      align-items: center; // <-- Añadido
-      flex-direction: column; // <-- Añadido
-      width: 100%;
-      height: 100%;
-      transition: opacity 1.3s ease;
-      text-align: center;
-      color: white;
+      transition: opacity ease;
      
-        }
+      
+
+      }
         &.activo {
-          position: absolute;
           width: 63.5vw;
           height: 70vh;
           z-index: 10000;
-          top: 2px;
           background-color: rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 20px #00f0ff;
-
-            .cuadro-content {
+          box-shadow: 0 0 20px hsl(184, 100%, 50%);
+          
+            .cuadroTeam {
               opacity: 1;
+              width: 100%;
+              height: 100%;
               
             }
         }
+
+.imgTeam{
+   width: 100px;
+   height:100px;
+}
+
+.c1Title{
+    font-size: 15PX;
+   }
+
+
+
+
+
+
+  }
+
+
+  .cuadrosServicios {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  //border: 1px solid red;
+  height: 100%;
+  width: 100%;
+  gap: 10px 1%;
+  padding-bottom: 20px;
+  padding-top: 26%;
+  left: -90px;
+
+  .cuadro {
+    position: relative;
+    
+    justify-content: center;
+    align-items: center;
+    
+    width: 160px;
+    height: 150px;
+    border: 1px solid rgba(255, 255, 255, 0.137);
+    overflow: hidden;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: none; // ← sin transición por defecto (solo al abrir)
+
+
+    // Contenedor interno
+    .cuadroCont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: white;
+      opacity: 0.85;
+      transition: opacity 1.3s ease;
+
+    }
+
+    // Cuando se activa
+    &.activo {
+      width: 1200px;
+      height: 400px;
+      z-index: 10000;
+      top: 50%;
+      left: 50%;
+      position: fixed; // ← usa `fixed` para evitar “vibración” por `absolute`
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      transition: all 1.8s ease; // ← aplica transición solo al abrir
+
+      .cuadroCont {
+        opacity: 1;
+      }
+    }
+
+    
+  }
+
+  // Título
+  .cTitle {
+    font-size: 13px;
+  }
+
+  // Imagen
+  .imgServs {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    
   }
 
 .C2 {
+  
+  
   color: #00f0ff;
  } // Ya contiene todo correcto, no necesita cambios extra
 .C3 {
+  
+  
  backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
         cursor: pointer;}
 .C4 {
+  
+  
  backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
         cursor: pointer;}
 .C5 {
+  
+  
  backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
         cursor: pointer;}
 .C6 {
+  
+  
  backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
         cursor: pointer;}
 .C7 {
+  
+
  backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
         cursor: pointer;}
 }
+
+
 .titleHome{
   position:absolute;
   
@@ -308,14 +353,16 @@ height: 90vh;
  align-items: center;
  top: 30%;
  left: 10%;
- 
+ font-size: 2px;
  padding:0;
  margin: 0;
  
 }
+
 .mainTitle{
  display: flex;
 font-size: 40px;
+
 }
 .secondaryTitle{
   position: absolute;
@@ -354,4 +401,233 @@ font-size: 40px;
   }
 
 }
+
+.impresora{
+  position: absolute;
+  display: flex;
+  
+  height:800px;
+  width: 800px;
+  right:-12.5%;
+  bottom: -340px;
+  transform: scale(0.35);
+  z-index: 1;
+  border-radius: 50%;
+  
+  border: none;
+
+  
+}
+
+.robot{
+  position: absolute;
+  display: flex;
+  
+  height:800px;
+  width: 800px;
+  right:-12.5%;
+  top: -200px;
+  transform: scale(0.35);
+  z-index: 1;
+  border-radius: 50%;
+  
+  border: none;
+
+  
+}
+
+
+
+
+/*MEDIA QUERISs*/
+@media (max-width: 1299px) and (min-width:768px){
+  .containerHome {
+    width: 400px;
+    height: 200px;
+  }
+  .mainTitle{
+    font-size: 25px;
+  }
+  .cTitle {
+    font-size: 1px;
+  }
+  .cuadrosServicios {
+    .imgServs {
+      height: 50px;
+      width: 50px;
+    }
+ 
+  .cuadro {
+    width: 100px;
+    height: 100px;
+     .cuadroCont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      color: white;
+      opacity: 0.85;
+      transition: opacity 1.3s ease;
+
+    }
+
+    // Cuando se activa
+    &.activo {
+      width: 1000px;
+      height: 450px;
+      z-index: 10000;
+      top: 50%;
+      left: 50%;
+      position: fixed; // ← usa `fixed` para evitar “vibración” por `absolute`
+      
+    
+
+      
+    }
+  }
+   }
+
+   .c1Title{
+    font-size: 15PX;
+   }
+
+#morph-container {
+  
+  
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  left: 20%;
+
+  bottom: 25%;
+  z-index: 2222;
+
+  // Este filtro permite el efecto morphing
+  filter: url(#threshold) blur(0.6px);
+
+  .text {
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  color: #09addf;
+  
+  font-size: 15pt;
+  font-weight: bold;
+  text-align: center;
+
+  user-select: none;
+  }
+
+}
+  .orbe{
+    left: 58%;
+    top: 20px;
+    width: 160px;
+    height: 160px;
+    .imgH{
+      width: 200px;
+    }
+  }
+
+.impresora{
+  position: absolute;
+  display: flex;
+  
+  height:800px;
+  width: 800px;
+  right:-13%;
+  bottom: -340px;
+  
+}
+
+.robot{
+  position: absolute;
+  display: flex;
+  
+  height:800px;
+  width: 800px;
+  right:-20%;
+  top: -200px;
+  
+}
+
+.cuadro1{
+    width: 180px;
+    height: 100px;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+.logoName{
+    position: absolute;
+      margin: 0;
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity ease;
+      flex-direction: row;
+      color: white;
+      .imgTeam{
+   width: 65px;
+    height: 65px;
+}
+    }
+      .cuadro-content {
+      position: absolute;
+      flex: 1;
+      
+      
+      transition: opacity 1.3s ease;
+      text-align: center;
+      color: white;
+      }
+
+
+
+      
+        &.activo {
+          width: 74vw;
+          height: 85vh;
+          z-index: 10000;
+          background-color: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 20px #00f0ff;
+          top: 5%;
+          left: 13%;
+          position: fixed;
+            .cuadro-content {
+              opacity: 1;
+            }
+        }
+  }
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
 
